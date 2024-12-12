@@ -79,7 +79,7 @@ docker-compose ps
 - API documentation: http://myapp.uz/api-docs
 
 ### MongoDB
-- Connection string: `mongodb://admin:password@my-mongodb.uz:27017/?authSource=admin&replicaSet=rs0`
+- Connection string: `mongodb://my-mongodb.uz:27017/mydatabase?directConnection=true`
 - Replica set members:
   - Primary: mongodb-primary:27017
   - Secondary 1: mongodb-secondary1:27017
