@@ -92,9 +92,9 @@ docker-compose ps
 rs.initiate({
   _id: "rs0",
   members: [
-    { _id: 0, host: "mongodb-primary:27017", priority: 2 },
-    { _id: 1, host: "mongodb-secondary1:27017", priority: 1 },
-    { _id: 2, host: "mongodb-secondary2:27017", priority: 1 }
+    { _id: 0, host: "mongodb1:27017", priority: 2 },
+    { _id: 1, host: "mongodb2:27017", priority: 1 },
+    { _id: 2, host: "mongodb3:27017", priority: 1 }
   ]
 })
 ```
@@ -102,10 +102,9 @@ rs.initiate({
 ### Monitoring Replication
 ```bash
 # Check replica set status
-docker exec mongodb-primary mongosh --eval "rs.status()"
+docker exec mongodb1 mongosh --eval "rs.status()"
 
-# Check replication lag
-docker exec mongodb-primary mongosh --eval "rs.printSlaveReplicationInfo()"
+
 ```
 
 ## Volume Management
@@ -113,21 +112,22 @@ docker exec mongodb-primary mongosh --eval "rs.printSlaveReplicationInfo()"
 ### Data Persistence
 ```yaml
 volumes:
-  mongodb_primary_data:
-  mongodb_secondary1_data:
-  mongodb_secondary2_data:
-  mongodb_config:
+  mongodb1_data:
+    name: mongodb1_data
+  mongodb1_config:
+    name: mongodb1_config
+  mongodb2_data:
+    name: mongodb2_data
+  mongodb2_config:
+    name: mongodb2_config
+  mongodb3_data:
+    name: mongodb3_data
+  mongodb3_config:
+    name: mongodb3_config
   nginx_logs:
+    name: nginx_logs
 ```
 
-### Backup and Restore
-```bash
-# Backup
-docker exec mongodb-primary mongodump --out /data/backup
-
-# Restore
-docker exec mongodb-primary mongorestore /data/backup
-```
 
 ## Load Balancing Verification
 
@@ -169,26 +169,10 @@ docker-compose ps
 docker-compose logs [service_name]
 ```
 
-### Scaling
-```bash
-# Scale application instances
-docker-compose up -d --scale app=3
-```
 
-### Updates
-```bash
-# Update services
-docker-compose pull
-docker-compose up -d
-```
+
 
 ## Troubleshooting
-
-1. MongoDB Connectivity
-```bash
-# Check replica set status
-docker exec mongodb-primary mongosh --eval "rs.status()"
-```
 
 2. Load Balancer Issues
 ```bash
