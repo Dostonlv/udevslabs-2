@@ -4,18 +4,18 @@ This application demonstrates a production-grade setup with load balancing, Mong
 
 ## Architecture Overview
 
-### 1. Nginx Configuration (20 points)
+### 1. Nginx Configuration 
 
 
-### 2. Load Balancing (20 points)
+### 2. Load Balancing 
 
-### 3. Application (20 points)
+### 3. Application
 
 
-### 4. MongoDB Setup (10 points)
+### 4. MongoDB Setup 
 
-### 5. MongoDB Volume Management (10 points)
-### 6. MongoDB Replication (40 points)
+### 5. MongoDB Volume Management 
+### 6. MongoDB Replication
 
 
 ## Prerequisites
