@@ -5,40 +5,18 @@ This application demonstrates a production-grade setup with load balancing, Mong
 ## Architecture Overview
 
 ### 1. Nginx Configuration (20 points)
-- Reverse proxy for application instances
-- Stream configuration for MongoDB access
-- SSL/TLS ready configuration
-- Custom domain routing
+
 
 ### 2. Load Balancing (20 points)
-- Two Node.js application instances
-- Round-robin load distribution
-- Health checks for high availability
-- Zero-downtime deployments
 
 ### 3. Application (20 points)
-- Node.js Express application
-- RESTful API endpoints
-- Swagger documentation
-- Environment-based configuration
+
 
 ### 4. MongoDB Setup (10 points)
-- Secure authentication
-- Network isolation
-- Optimized configuration
-- Data persistence
 
 ### 5. MongoDB Volume Management (10 points)
-- Persistent data storage
-- Separate volumes for data and config
-- Backup-ready configuration
-- Volume naming strategy
-
 ### 6. MongoDB Replication (40 points)
-- 3-node replica set
-- Automatic failover
-- Data redundancy
-- Replication monitoring
+
 
 ## Prerequisites
 
